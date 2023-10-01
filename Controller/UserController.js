@@ -14,7 +14,7 @@ export const registerController = async (req, res) => {
     if (existingUser) {
       return res.status(200).send({
         success: false,
-        massage: "already register !! please login",
+        message: "Already registered !! Please login",
       });
     }
 
@@ -39,7 +39,7 @@ export const registerController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Errro in Registeration",
+      message: "Error in Registeration",
     });
   }
 };
@@ -63,7 +63,7 @@ export const logincontroller = async (req, res) => {
     if (!user) {
       return res.status(404).send({
         success: false,
-        massage: "Email is not registered",
+        message: "Email is not registered",
       });
     }
 
@@ -73,7 +73,7 @@ export const logincontroller = async (req, res) => {
     if (!matchingPassword) {
       return res.status(200).send({
         success: false,
-        massage: "Invalid password",
+        message: "Invalid password",
       });
     }
 
@@ -98,7 +98,7 @@ export const logincontroller = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      massage: "Got Error in LOGIN",
+      message: "Got Error in LOGIN",
       error,
     });
   }

@@ -1,10 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+import morgan from "morgan";
 import cors from "cors";
 import connectDB from "./config/DB.js";
 import AuthRoutes from "./routes/AuthRoutes.js";
 // import TaskModel from "./Models/TaskModel.js";
-import TaskRoutes from "./routes/TaskRoutes.js";
+import customerRoutes from "./routes/customerRoutes.js";
 
 //configure env
 dotenv.config();
@@ -23,11 +24,12 @@ app.use(
 );
 
 app.use(express.json());
+app.use(morgan("tiny"));
 
 //Routes
 
 app.use("/api/auth", AuthRoutes);
-app.use("/api/task", TaskRoutes);
+app.use("/api/customer", customerRoutes);
 
 //rest api
 app.get("/", (req, res) => {
